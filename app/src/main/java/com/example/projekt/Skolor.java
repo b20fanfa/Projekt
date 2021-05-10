@@ -10,4 +10,19 @@ public class Skolor {
     private String category;
 
     private int size;
+/*
+    public String getName() { return name; }
+
+    public String getLocation() { return location; }
+
+    public String getCategory() { return category; }
+
+    public int getSize() { return size; }
+
+ */
+
+    @Override
+    public String toString () {
+        return name;
+    }
 }
