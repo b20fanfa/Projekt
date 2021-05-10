@@ -10,7 +10,7 @@ public class Skolor {
     private String category;
 
     private int size;
-/*
+
     public String getName() { return name; }
 
     public String getLocation() { return location; }
@@ -19,7 +19,7 @@ public class Skolor {
 
     public int getSize() { return size; }
 
- */
+
 
     @Override
     public String toString () {

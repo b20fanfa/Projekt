@@ -53,6 +53,20 @@ public class MainActivity extends AppCompatActivity {
 
         my_listview.setAdapter(adapter);
 
+        my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Skolor ut = skolorArrayList.get(position);
+                ut.getName();
+                ut.getSize();
+                ut.getLocation();
+                ut.getCategory();
+                String medelande = ut.getName() + ut.getLocation() + ut.getCategory() + ut.getSize();
+                Toast.makeText(MainActivity.this, medelande , Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
       //  ArrayAdapter<Skolor> adapter = new ArrayAdapter<Skolor>(this,R. layout.list_item_textview, R.id.list_item_textview_xml, skolorArrayList);
 
