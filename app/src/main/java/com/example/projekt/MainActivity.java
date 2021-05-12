@@ -45,34 +45,26 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ListView my_listview =(ListView) findViewById(R.id.my_listview);
-        //ListView myListView=findViewById(R.id.my_listview);
-
 
         skolorArrayList = new ArrayList<>();
         adapter=new ArrayAdapter<>(MainActivity.this,R.layout.list_item_textview,R.id.list_item_textview_xml,skolorArrayList);
-
         my_listview.setAdapter(adapter);
 
         my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Skolor ut = skolorArrayList.get(position);
-                ut.getName();
-                ut.getSize();
-                ut.getLocation();
-                ut.getCategory();
-                String medelande = ut.getName() + ut.getLocation() + ut.getCategory() + ut.getSize();
-                Toast.makeText(MainActivity.this, medelande , Toast.LENGTH_SHORT).show();
+                String name  = skolorArrayList.get(position).getName("name");
+                String category = skolorArrayList.get(position).getCategory("category");
+                String location = skolorArrayList.get(position).getLocation("location");
+                int size = skolorArrayList.get(position).getSize("size");
+
+                String utskrift = "Namn på skolan: " + name + "\n\n" + "Detta är en: " + category + "\n\n" + "Skolan är placerad vid " + location + "\n\n" + "Det går ca " + size + " studenter";
+                Toast.makeText(MainActivity.this, utskrift ,  Toast.LENGTH_SHORT).show();
 
             }
         });
 
-
-      //  ArrayAdapter<Skolor> adapter = new ArrayAdapter<Skolor>(this,R. layout.list_item_textview, R.id.list_item_textview_xml, skolorArrayList);
-
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=b20fanfa");
-
-
 
    //Det som står om man trycker på kanppen
        FloatingActionButton fab = findViewById(R.id.fab);
@@ -83,10 +75,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-
     }
-@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -102,14 +92,14 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
-            Toast.makeText(getApplicationContext(), "hej hej about me ",
+            Toast.makeText(getApplicationContext(), "Denna app är till för alla människor som är redo att börja studera på universitet. \u2028Appen innehåller snabbfakta om olika skolor runt om i Sverige.  Den snabbfakta som finns är namn, plats, typ av skola och hur många studenter som går där. \n" +
+                            "Detta är enbart skolor i Sverige.  ",
                 Toast.LENGTH_SHORT).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
     @SuppressLint("StaticFieldLeak")
     private class JsonTask extends AsyncTask<String, String, String> {
@@ -157,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 Gson gson=new Gson();
-                /*webService[] webServices;*/
                 listor=gson.fromJson(json,Skolor[].class);
                 skolorArrayList.clear();
                 for(int i=0; i <listor.length; i++){
@@ -168,8 +157,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (JsonSyntaxException e) {
                 e.printStackTrace();
             }
-
-
             //adapter.notifyDataSetChanged();
         }
     }

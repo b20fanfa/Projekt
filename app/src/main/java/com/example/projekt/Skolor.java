@@ -11,13 +11,13 @@ public class Skolor {
 
     private int size;
 
-    public String getName() { return name; }
+    public String getName(String name) { return this.name; }
 
-    public String getLocation() { return location; }
+    public String getLocation(String location) { return this.location; }
 
-    public String getCategory() { return category; }
+    public String getCategory(String category) { return this.category; }
 
-    public int getSize() { return size; }
+    public int getSize(String size) { return this.size; }
 
 
 
