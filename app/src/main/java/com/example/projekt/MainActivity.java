@@ -95,6 +95,14 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Denna app är till för alla människor som är redo att börja studera på universitet. \u2028Appen innehåller snabbfakta om olika skolor runt om i Sverige.  Den snabbfakta som finns är namn, plats, typ av skola och hur många studenter som går där. \n" +
                             "Detta är enbart skolor i Sverige.  ",
                 Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.action_facts) {
+            Toast.makeText(getApplicationContext(), " \n" +
+                            "Vad är skillnaden mellan högskola och universitet?\n\n" +
+                            "Skillnaden är universitet har generell rätt att utfärda examen på forskarnivå. \n" +
+                            "Högskolor måste specifikt ansöka om sådan rättighet, eller samarbeta med ett annat lärosäte som har rättigheter.\n" +
+                            " I praktiken är det dock ingen skillnad att studera på en svensk högskola eller universitet för de allra flesta studenter. ",
+                    Toast.LENGTH_SHORT).show();
+
             return true;
         }
 
