@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_about) {
-            Toast.makeText(getApplicationContext(), "Denna app är till för alla människor som är redo att börja studera på universitet. \u2028Appen innehåller snabbfakta om olika skolor runt om i Sverige.  Den snabbfakta som finns är namn, plats, typ av skola och hur många studenter som går där. \n" +
+            Toast.makeText(getApplicationContext(), "Denna app är till för alla människor som är redo att börja studera på universitet. \nAppen innehåller snabbfakta om olika skolor runt om i Sverige.  Den snabbfakta som finns är namn, plats, typ av skola och hur många studenter som går där. \n" +
                             "Detta är enbart skolor i Sverige.  ",
                 Toast.LENGTH_SHORT).show();
         } else if (id == R.id.action_facts) {
