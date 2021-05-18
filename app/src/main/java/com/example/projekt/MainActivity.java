@@ -32,7 +32,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private ArrayList<Skolor> skolorArrayList;
     private ArrayAdapter <Skolor> adapter;
     private Skolor[] listor ;
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Appen är skapad av Fanny", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -102,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
                             "Högskolor måste specifikt ansöka om sådan rättighet, eller samarbeta med ett annat lärosäte som har rättigheter.\n" +
                             " I praktiken är det dock ingen skillnad att studera på en svensk högskola eller universitet för de allra flesta studenter. ",
                     Toast.LENGTH_SHORT).show();
-
             return true;
         }
 
